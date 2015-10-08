@@ -5,6 +5,7 @@ import spock.lang.Specification
 
 class TodoApplicationTest extends Specification{
     def "greet-test"(){
+
         given:
             TodoApplication todoApplication = new TodoApplication()
             String greetingMessage;
@@ -14,6 +15,5 @@ class TodoApplicationTest extends Specification{
 
         then: "Expect the greeting message passed to be equal to greetingMessage"
             greetingMessage == "Hello"
-
     }
 }
