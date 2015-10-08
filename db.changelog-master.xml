@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <changeSet id="1.0" author="">
+        <createTable tableName="users">
+            <column name="user_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_name" type="varchar(50)"></column>
+            <column name="password" type="varchar(50)"></column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2.0" author="">
+        <createTable tableName="tasks">
+            <column name="task_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="task_name" type="varchar(50)"></column>
+            <column name="is_done" type="boolean"></column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
+
