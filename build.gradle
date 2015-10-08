@@ -3,13 +3,30 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'groovy'
 apply plugin: 'java'
+apply plugin: 'application'
 
 sourceCompatibility = 1.8
 
 repositories {
+    mavenLocal()
     mavenCentral()
+    jcenter()
 }
 
+configurations {
+    liquibase
+
+}
+
+
+
+
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    liquibase 'mysql:mysql-connector-java:5.1.6'
+    liquibase 'org.liquibase:liquibase-core:3.4.0'
+
+    compile 'org.codehaus.groovy:groovy-all:2.4.5'
+    compile 'com.google.inject:guice-parent:3.0'
+    compile "restling:restling-core:0.0.7"
+    testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
 }
