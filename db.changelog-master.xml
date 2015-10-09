@@ -6,8 +6,8 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
 
-    <include file="/home/webonise/IdeaProjects/restling-TODO/changelog/table_users.xml"></include>
-    <include file="/home/webonise/IdeaProjects/restling-TODO/changelog/table_tasks.xml"></include>
+    <include file="/changelog/table_users.xml" relativeToChangelogFile="true"></include>
+    <include file="/changelog/table_tasks.xml" relativeToChangelogFile="true"></include>
 
 </databaseChangeLog>
 
