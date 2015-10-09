@@ -8,7 +8,7 @@
         <tagDatabase tag="before_table_users"/>
     </changeSet>
 
-    <changeSet id="1.03" author="" >
+    <changeSet id="1.04" author="sudha" >
         <createTable tableName="users">
             <column name="user_id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>

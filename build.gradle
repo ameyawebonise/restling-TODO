@@ -13,9 +13,6 @@ repositories {
     mavenCentral()
     jcenter()
 }
-configurations {
-    liquibase
-}
 
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.12'
@@ -24,5 +21,4 @@ dependencies {
     compile 'com.google.inject:guice-parent:3.0'
     compile "restling:restling-core:0.0.7"
     testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
-    liquibase 'org.liquibase:liquibase-core:3.4.0'
 }
