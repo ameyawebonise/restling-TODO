@@ -6,10 +6,10 @@ import org.restlet.Context
 import restling.restlet.RestlingRouter
 
 @CompileStatic
-class SimpleRouter extends RestlingRouter{
+class RootRouter extends RestlingRouter{
 
     @Inject
-    SimpleRouter(Context context){
+    RootRouter(Context context){
         super(context)
     }
     @Override
