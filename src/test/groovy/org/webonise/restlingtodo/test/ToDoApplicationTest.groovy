@@ -1,13 +1,13 @@
 package org.webonise.restlingtodo.test
 
-import org.webonise.restlingtodo.TodoApplication
+import ServiceModule
 import spock.lang.Specification
 
-class TodoApplicationTest extends Specification{
+class ToDoApplicationTest extends Specification{
     def "greet-test"(){
 
         given:
-            TodoApplication todoApplication = new TodoApplication()
+            ServiceModule todoApplication = new ServiceModule()
             String greetingMessage;
 
         when: "Pass the greeting message and save it in greetingMessage"

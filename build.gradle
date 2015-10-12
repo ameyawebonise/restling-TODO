@@ -1,9 +1,23 @@
 group 'org.webonise.restlingtodo'
 version '1.0-SNAPSHOT'
 
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath('org.akhikhl.gretty:gretty:+')
+    }
+
+}
+
 apply plugin: 'groovy'
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'org.akhikhl.gretty'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -14,6 +28,11 @@ repositories {
     jcenter()
 }
 
+configurations{
+    all*.resolutionStrategy {
+        force "org.codehaus.groovy:groovy-all:2.4.5"
+    }
+}
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.12'
     compile 'org.slf4j:slf4j-simple:1.7.12'
@@ -21,4 +40,9 @@ dependencies {
     compile 'com.google.inject:guice-parent:3.0'
     compile "restling:restling-core:0.0.7"
     testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
+}
+
+gretty {
+    servletContainer = 'tomcat8'
+    contextPath = ""
 }

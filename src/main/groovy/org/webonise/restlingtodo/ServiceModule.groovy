@@ -6,7 +6,7 @@ import restling.guice.modules.RestlingApplicationModule
 
 @Slf4j
 @CompileStatic
-class TodoApplication extends RestlingApplicationModule{
+class ServiceModule extends RestlingApplicationModule{
 
     Class<RootRouter> routerClass = RootRouter
 
