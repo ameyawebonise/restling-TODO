@@ -1,7 +1,6 @@
-package org.webonise.resources.pingpong
+package org.webonise.resources.Routers
 
-import com.google.inject.Inject
-import org.restlet.Context
+import org.webonise.resources.Resources.PingResource
 import restling.restlet.RestlingRouter
 
 

@@ -1,4 +1,4 @@
-package org.webonise.resources.pingpong
+package org.webonise.resources.Resources
 
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
