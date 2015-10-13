@@ -1,4 +1,4 @@
-package org.webonise.resources.Resources
+package org.webonise.resources
 
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
@@ -8,9 +8,11 @@ import org.restlet.resource.Get
 @CompileStatic
 class PingResource {
 
+    private String message;
     @Get
     String pinged(){
         log.info("pinged")
-        return "PONG"
+        message = "PONG"
+        return message
     }
 }
