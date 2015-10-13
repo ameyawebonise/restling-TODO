@@ -1,6 +1,6 @@
-package org.webonise.resources.Routers
+package org.webonise.routers
 
-import org.webonise.resources.Resources.PingResource
+import org.webonise.resources.PingResource
 import restling.restlet.RestlingRouter
 
 

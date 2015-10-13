@@ -1,7 +1,7 @@
 package org.webonise.restlingtodo
 
 import groovy.transform.CompileStatic
-import org.webonise.resources.Routers.PingRouter
+import org.webonise.routers.PingRouter
 import restling.restlet.RestlingRouter
 
 @CompileStatic
