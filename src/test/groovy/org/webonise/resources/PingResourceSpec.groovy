@@ -3,9 +3,9 @@ package org.webonise.resources
 import spock.lang.Specification
 
 
-class PingResourceTest extends Specification{
+class PingResourceSpec extends Specification{
 
-    PingResource pingResource = new PingResource();
+    def pingResource = new PingResource();
 
     def "pinged method returns PONG" (){
         when: "call to a method pinged"
