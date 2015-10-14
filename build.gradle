@@ -10,6 +10,8 @@ buildscript {
 
     dependencies {
         classpath('org.akhikhl.gretty:gretty:+')
+        classpath 'org.jooq:jooq-codegen:3.5.4'
+        classpath 'mysql:mysql-connector-java:5.1.6'
     }
 
 }
@@ -29,6 +31,7 @@ repositories {
 }
 
 configurations{
+    liquibase
     all*.resolutionStrategy {
         force "org.codehaus.groovy:groovy-all:2.4.5"
     }
@@ -40,9 +43,50 @@ dependencies {
     compile 'com.google.inject:guice-parent:3.0'
     compile "restling:restling-core:0.0.7"
     testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
+    liquibase 'mysql:mysql-connector-java:5.1.6'
+    compile 'org.jooq:jooq:3.6.2'
 }
 
 gretty {
     servletContainer = 'tomcat8'
     contextPath = ""
 }
+
+
+task generateJooqCode  << {
+    def writer = new StringWriter()
+    def xml = new groovy.xml.MarkupBuilder(writer)
+            .configuration('xmlns': 'http://www.jooq.org/xsd/jooq-codegen-3.5.0.xsd') {
+        jdbc() {
+            driver('com.mysql.jdbc.Driver')
+            url("jdbc:mysql://localhost:3306/todo_task")
+            user("root")
+            password("root")
+        }
+        generator() {
+            database() {
+                name('org.jooq.util.mysql.MySQLDatabase')
+                inputSchema("todo_task")
+            }
+            generate() {
+                deprecated('false')
+                pojos('true')
+                pojosEqualsAndHashCode('true')
+                immutablePojos('false')
+            }
+            target() {
+                packageName("org.webonise.sql")
+                directory("src/main/java")
+            }
+        }
+    }
+
+    org.jooq.util.GenerationTool.main(
+            javax.xml.bind.JAXB.unmarshal(
+                    new StringReader(writer.toString()),
+                    org.jooq.util.jaxb.Configuration.class
+            )
+    )
+}
+
+
