@@ -3,10 +3,11 @@ package org.webonise.resources
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import org.restlet.resource.Get
+import org.restlet.resource.ServerResource
 
 @Slf4j
 @CompileStatic
-class PingResource {
+class PingResource  extends ServerResource{
 
     private String message;
     @Get
