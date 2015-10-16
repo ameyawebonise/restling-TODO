@@ -45,6 +45,7 @@ dependencies {
     testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
     liquibase 'mysql:mysql-connector-java:5.1.6'
     compile 'org.jooq:jooq:3.6.2'
+    compile 'mysql:mysql-connector-java:5.1.6'
 }
 
 gretty {

@@ -7,7 +7,6 @@ import org.restlet.data.Method
 import org.webonise.resources.PingResource
 import org.webonise.restlingtodo.RoutingSpec
 import org.webonise.restlingtodo.ServiceModule
-import org.webonise.routers.PingRouter
 import spock.lang.Shared
 import spock.lang.Specification
 
