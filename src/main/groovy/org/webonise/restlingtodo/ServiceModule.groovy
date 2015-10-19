@@ -4,6 +4,7 @@ import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import org.webonise.dataaccess.DSLContextProvider
 import org.webonise.dataaccess.DataAccessModule
+import org.webonise.service.TodoServiceModule
 import restling.guice.modules.RestlingApplicationModule
 
 
@@ -16,6 +17,7 @@ class ServiceModule extends RestlingApplicationModule{
     @Override
     void configureCustomBindings() {
         this.install(new DataAccessModule())
+        this.install(new TodoServiceModule())
     }
 
 }
