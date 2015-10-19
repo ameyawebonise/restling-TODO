@@ -11,6 +11,6 @@ class RootRouter extends RestlingRouter{
     @Override
     void init() {
         attachSubRouter("/pingpong", PingRouter)
-        attachSubRouter("/signup",UserRouter)
+        attachSubRouter("/user",UserRouter)
     }
 }

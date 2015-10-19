@@ -8,7 +8,6 @@ import org.webonise.dao.interfaces.UserDao
 import org.webonise.dataaccess.DSLContextProvider
 import org.webonise.exceptions.SignUpException
 import org.webonise.sql.tables.pojos.Users
-
 import static org.webonise.sql.tables.Users.USERS
 
 @Slf4j

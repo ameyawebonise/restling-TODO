@@ -15,8 +15,12 @@ import org.webonise.service.interfaces.UserService
 class UserResource extends ServerResource{
     private String message;
 
+    final UserService userService
+
     @Inject
-    UserService userService
+    UserResource(UserService userService){
+        this.userService = userService
+    }
 
     @Get
     String AllUsers(){

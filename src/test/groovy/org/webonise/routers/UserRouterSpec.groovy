@@ -34,10 +34,10 @@ class UserRouterSpec extends Specification implements RoutingSpec{
         fixture.stop()
     }
 
-    def " POST /user goes to UserResource "(){
+    def " POST /signup goes to UserResource "(){
 
-        when: "POST /user"
-        def restlet = retrieveRoute(Method.POST,"/user")
+        when: "POST /signup"
+        def restlet = retrieveRoute(Method.POST,"/signup")
 
         then: "UserResource found"
         restlet != null

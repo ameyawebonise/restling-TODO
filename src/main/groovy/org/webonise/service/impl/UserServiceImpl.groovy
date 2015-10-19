@@ -3,6 +3,7 @@ package org.webonise.service.impl
 import com.google.inject.Inject
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
+import org.apache.commons.codec.digest.Crypt
 import org.webonise.dao.interfaces.UserDao
 import org.webonise.exceptions.SignUpException
 import org.webonise.pojos.SignupRequest
@@ -25,22 +26,25 @@ class UserServiceImpl implements UserService {
     @Override
     SignupResponse storeUserDetails(SignupRequest signupRequest) {
         SignupResponse signupResponse = new SignupResponse()
+        Crypt crypt
         try{
             Users user = new Users()
-            if (signupRequest.username != null)
-                user.userName = signupRequest.username
-            else{
+            if (signupRequest.username == null){
                 signupResponse.setMessage("Please Enter Username")
                 return signupResponse
             }
-            if(signupRequest.password != null)
-                user.password = signupRequest.password
-            else{
+
+            else if(signupRequest.password == null){
                 signupResponse.setMessage("Please Enter Password")
                 return signupResponse
             }
-            signupResponse.message= userDao.saveUserDetails(user)
-            return signupResponse
+            else{
+                user.userName = signupRequest.username
+                String encryptedVal = crypt.crypt(signupRequest.password,"xx")
+                user.password = encryptedVal
+                signupResponse.message= userDao.saveUserDetails(user)
+                return signupResponse
+            }
         }catch (SignUpException se){
             signupResponse.setMessage(se.getMessage())
             return signupResponse
