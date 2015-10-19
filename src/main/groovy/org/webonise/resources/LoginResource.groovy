@@ -22,7 +22,8 @@ class LoginResource extends ServerResource {
 
     @Post
     LoginResponse doLogin(AuthenticationData authenticationData) {
-        return loginService.login(authenticationData)
+       return loginService.doLogin(authenticationData)
+
     }
 
 }

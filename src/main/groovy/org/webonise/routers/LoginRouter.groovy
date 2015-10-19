@@ -10,6 +10,6 @@ import restling.restlet.RestlingRouter
 class LoginRouter extends RestlingRouter {
     @Override
     void init() throws Exception {
-        attach("/user",LoginResource)
+        attach("/login",LoginResource)
     }
 }

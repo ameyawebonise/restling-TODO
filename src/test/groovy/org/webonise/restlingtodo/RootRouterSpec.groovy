@@ -45,7 +45,7 @@ class RootRouterSpec extends Specification implements RoutingSpec {
 
     def "POST /login/user "() {
         when: "we request GET /login/user  "
-        def restlet = retrieveRoute(Method.GET, "/login/user ")
+        def restlet = retrieveRoute(Method.GET, "/user/login ")
 
         then: "ping resource"
         restlet != null

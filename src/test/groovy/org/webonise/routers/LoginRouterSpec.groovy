@@ -37,9 +37,9 @@ class LoginRouterSpec extends Specification implements RoutingSpec {
     }
 
 
-    def "GET /user to LoginResource"() {
-        when: "GET /user"
-        def restlet = retrieveRoute(Method.GET, "/user")
+    def "/login to LoginResource"() {
+        when: "POST /login"
+        def restlet = retrieveRoute(Method.POST, "/login")
 
         then: "User login"
         restlet != null

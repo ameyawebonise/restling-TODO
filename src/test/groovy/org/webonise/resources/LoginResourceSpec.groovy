@@ -14,6 +14,8 @@ import org.webonise.pojos.LoginResponse
 import org.webonise.restlingtodo.RoutingSpec
 import org.webonise.restlingtodo.ServiceModule
 import org.webonise.routers.LoginRouter
+import org.webonise.service.impl.LoginServiceImpl
+import org.webonise.service.interfaces.LoginService
 import spock.lang.Shared
 import spock.lang.Specification
 
@@ -41,9 +43,9 @@ class LoginResourceSpec extends Specification implements RoutingSpec {
     }
 
     def "Login with valid credentials"() {
-        when: "POST /user"
-        def restlet = retrieveRoute(Method.POST, "/user")
-        Request request = new Request(Method.POST, new Reference("/user"));
+        when: "POST /login"
+        def restlet = retrieveRoute(Method.POST, "/login")
+        Request request = new Request(Method.POST, new Reference("/login"));
         request.setEntity(authenticatedUser(), MediaType.APPLICATION_JSON)
         Response response = restlet.handle(request)
         then:
@@ -53,14 +55,16 @@ class LoginResourceSpec extends Specification implements RoutingSpec {
         Object mapper = new ObjectMapper()
         LoginResponse checkInLogoInResponse =
                 mapper.readValue(response.getEntityAsText(), LoginResponse)
+        checkInLogoInResponse != null
+        checkInLogoInResponse.getAuthToken() != null
         checkInLogoInResponse.getMessage() == "SUCCESS"
     }
 
 
     def "Login with invalid password"() {
-        when: "POST /user"
-        def restlet = retrieveRoute(Method.POST, "/user")
-        Request request = new Request(Method.POST, new Reference("/user"));
+        when: "POST /login"
+        def restlet = retrieveRoute(Method.POST, "/login")
+        Request request = new Request(Method.POST, new Reference("/login"));
         request.setEntity(invalidPassword(), MediaType.APPLICATION_JSON)
         Response response = restlet.handle(request)
         then:
@@ -70,13 +74,14 @@ class LoginResourceSpec extends Specification implements RoutingSpec {
         Object mapper = new ObjectMapper()
         LoginResponse checkInLogoInResponse =
                 mapper.readValue(response.getEntityAsText(), LoginResponse)
+        checkInLogoInResponse.getAuthToken() == null
         checkInLogoInResponse.getMessage() == "INVALID PASSWORD"
     }
 
     def "Login with invalid user name"() {
-        when: "POST /user"
-        def restlet = retrieveRoute(Method.POST, "/user")
-        Request request = new Request(Method.POST, new Reference("/user"));
+        when: "POST /login"
+        def restlet = retrieveRoute(Method.POST, "/login")
+        Request request = new Request(Method.POST, new Reference("/login"));
         request.setEntity(invalidUserName(), MediaType.APPLICATION_JSON)
         Response response = restlet.handle(request)
         then:
@@ -86,11 +91,12 @@ class LoginResourceSpec extends Specification implements RoutingSpec {
         Object mapper = new ObjectMapper()
         LoginResponse checkInLogoInResponse =
                 mapper.readValue(response.getEntityAsText(), LoginResponse)
+        checkInLogoInResponse.getAuthToken() == null
         checkInLogoInResponse.getMessage() == "INVALID USER NAME"
     }
 
     String invalidPassword() {
-        return "{\"userName\":\"goutam\",\"password\":\"goutamhg\"}"
+        return "{\"userName\":\"huma\",\"password\":\"goutamhg\"}"
     }
 
     String invalidUserName() {
@@ -98,7 +104,7 @@ class LoginResourceSpec extends Specification implements RoutingSpec {
     }
 
     String authenticatedUser() {
-        return "{\"userName\":\"goutam\",\"password\":\"goutam\"}"
+        return "{\"userName\":\"monica\",\"password\":\"monica\"}"
     }
 
 }

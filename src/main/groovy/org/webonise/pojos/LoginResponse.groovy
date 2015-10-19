@@ -7,4 +7,5 @@ import groovy.transform.CompileStatic
 @CompileStatic
 class LoginResponse {
     String message
+    String authToken
 }
