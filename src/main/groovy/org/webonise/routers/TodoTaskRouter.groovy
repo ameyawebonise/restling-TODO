@@ -10,6 +10,6 @@ import restling.restlet.RestlingRouter
 class TodoTaskRouter extends RestlingRouter {
     @Override
     void init() throws Exception {
-        attach("/tasks", TodoTaskResource)
+        attach("/deletetask", TodoTaskResource)
     }
 }

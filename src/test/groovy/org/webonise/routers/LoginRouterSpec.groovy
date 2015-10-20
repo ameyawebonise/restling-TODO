@@ -4,11 +4,9 @@ import com.google.inject.Guice
 import com.google.inject.Injector
 import groovy.util.logging.Log
 import org.restlet.data.Method
-import org.restlet.resource.Finder
 import org.webonise.resources.LoginResource
 import org.webonise.restlingtodo.RoutingSpec
 import org.webonise.restlingtodo.ServiceModule
-import restling.restlet.RestlingInjectedFilter
 import spock.lang.Shared
 import spock.lang.Specification
 

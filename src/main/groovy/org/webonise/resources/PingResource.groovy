@@ -6,7 +6,7 @@ import groovy.util.logging.Slf4j
 import org.apache.commons.codec.digest.Crypt
 import org.restlet.resource.Get
 import org.restlet.resource.ServerResource
-import org.webonise.dao.interfaces.UserDao
+import org.webonise.dao.Interfaces.UserDao
 
 @Slf4j
 @CompileStatic

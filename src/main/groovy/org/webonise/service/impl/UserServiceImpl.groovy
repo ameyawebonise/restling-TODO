@@ -4,7 +4,7 @@ import com.google.inject.Inject
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import org.apache.commons.codec.digest.Crypt
-import org.webonise.dao.interfaces.UserDao
+import org.webonise.dao.Interfaces.UserDao
 import org.webonise.exceptions.SignUpException
 import org.webonise.pojos.SignupRequest
 import org.webonise.pojos.SignupResponse

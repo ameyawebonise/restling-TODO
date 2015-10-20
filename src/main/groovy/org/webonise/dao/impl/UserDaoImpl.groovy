@@ -5,8 +5,8 @@ import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import org.jooq.DSLContext
 import org.jooq.Record1
+import org.webonise.dao.Interfaces.UserDao
 import org.webonise.pojos.AuthenticationData
-import org.webonise.dao.interfaces.UserDao
 import org.webonise.dataaccess.DSLContextProvider
 import org.webonise.exceptions.SignUpException
 import org.webonise.sql.tables.pojos.Users
@@ -48,7 +48,6 @@ class UserDaoImpl implements UserDao {
         }
         return "SUCCESS"
     }
-
     @Override
     public String getUserList(){
         dslContext = dslContextProvider.get()

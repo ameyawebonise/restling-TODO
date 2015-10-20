@@ -6,4 +6,5 @@ import org.webonise.service.interfaces.LoginService
 import spock.lang.Specification
 @Log
 class TodoTaskRouterSpec extends Specification implements RoutingSpec {
+    def TodoTaskRouter fixture
 }

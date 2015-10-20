@@ -1,9 +1,8 @@
 package org.webonise.dao.Interfaces;
 
 
-import org.webonise.sql.tables.pojos.Tasks;
+import org.webonise.pojos.TodoTaskRequest;
 
 public interface TodoTaskDao {
-    int getTaskById(Tasks tasks);
-    String deleteTaskById(int taskId);
+    void deleteTaskById(TodoTaskRequest todoTaskRequest);
 }

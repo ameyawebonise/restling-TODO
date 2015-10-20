@@ -1,6 +1,9 @@
 package org.webonise.service.interfaces;
 
 
+import org.webonise.pojos.TaskResponse;
+import org.webonise.pojos.TodoTaskRequest;
+
 public interface TodoTaskService {
-    String deleteTodoTask(int taskId);
+    TaskResponse deleteTodoTask(TodoTaskRequest todoTaskRequest);
 }
