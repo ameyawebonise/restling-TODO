@@ -15,9 +15,6 @@ import org.webonise.service.interfaces.LoginService
 class LoginResource extends ServerResource {
 
     @Inject
-    UserDao userDao
-
-    @Inject
     LoginService loginService
 
     @Post
