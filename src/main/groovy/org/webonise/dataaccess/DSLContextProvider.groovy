@@ -12,7 +12,7 @@ import java.sql.SQLException
 
 @Slf4j
 @CompileStatic
-class DSLContextProvider {
+class DSLContextProvider implements Provider<DSLContext> {
 
     private static final String USER_NAME = 'root'
     private static final String PASSWORD = 'root'
