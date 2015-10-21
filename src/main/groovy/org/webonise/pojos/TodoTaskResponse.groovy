@@ -6,7 +6,5 @@ import groovy.transform.CompileStatic
 @Canonical
 @CompileStatic
 class TodoTaskResponse {
-    int taskId
-    String taskDesc
-    TaskStatus status
+    String message
 }

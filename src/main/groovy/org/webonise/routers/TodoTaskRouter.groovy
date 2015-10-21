@@ -8,8 +8,10 @@ import restling.restlet.RestlingRouter
 @Slf4j
 @CompileStatic
 class TodoTaskRouter extends RestlingRouter {
+
     @Override
     void init() throws Exception {
-        attach("/tasks", TodoTaskResource)
+        attach("/newtask", TodoTaskResource)
+        attach("/all", TodoTaskResource)
     }
 }
