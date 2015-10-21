@@ -7,7 +7,7 @@ import org.restlet.resource.ServerResource
 
 @Slf4j
 @CompileStatic
-class PingResource extends ServerResource {
+class PingResource  extends ServerResource{
 
     private String message;
     @Get

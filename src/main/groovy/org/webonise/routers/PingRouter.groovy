@@ -1,5 +1,6 @@
 package org.webonise.routers
 
+
 import groovy.transform.CompileStatic
 import org.webonise.resources.PingResource
 import restling.restlet.RestlingRouter
