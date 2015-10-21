@@ -42,15 +42,12 @@ class TodoTaskDaoImpl implements TodoTaskDao {
     @Override
     List<Tasks> getAllTasks() {
         dslContext = dslContextProvider.get()
-        List<Integer> tasksIdList = new ArrayList<Integer>()
-        List<Tasks> tasksList = new ArrayList<>()
-        tasksIdList = dslContext.select(TASKS.TASK_ID)
-                .from(TASKS)
-                .fetch() as List<Integer>
-        for (Integer id : tasksIdList){
-            tasksList.add(dslContext.select().from(TASKS)
-                        .fetch().into(TASKS) as Tasks)
+        def tasks = dslContext.select().from(TASKS)
+                .fetch()
+        if(!tasks){
+            Collections.emptyList()
         }
+        List<Tasks> tasksList = tasks.into(Tasks)
         return tasksList
     }
 
