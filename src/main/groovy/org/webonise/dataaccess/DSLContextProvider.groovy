@@ -12,7 +12,7 @@ import java.sql.SQLException
 
 @Slf4j
 @CompileStatic
-class DSLContextProvider implements Provider<DSLContext>{
+class DSLContextProvider implements Provider<DSLContext> {
 
     private static final String USER_NAME = 'root'
     private static final String PASSWORD = 'root'
@@ -23,6 +23,7 @@ class DSLContextProvider implements Provider<DSLContext>{
         try{
             Connection connection = DriverManager.getConnection(URL,USER_NAME,PASSWORD)
             dslContext = DSL.using(connection)
+            return dslContext
         } catch (SQLException sqlException){
             log.info(sqlException.getMessage())
         }

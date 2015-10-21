@@ -4,43 +4,43 @@ import com.google.inject.Guice
 import com.google.inject.Injector
 import groovy.util.logging.Log
 import org.restlet.data.Method
-import org.webonise.resources.LoginResource
+import org.webonise.resources.UserResource
 import org.webonise.restlingtodo.RoutingSpec
 import org.webonise.restlingtodo.ServiceModule
 import spock.lang.Shared
 import spock.lang.Specification
 
 @Log
-class LoginRouterSpec extends Specification implements RoutingSpec {
+class UserRouterSpec extends Specification implements RoutingSpec{
 
     @Shared
     def Injector injector
 
-    def LoginRouter fixture
+    def UserRouter fixture
 
-    def setupSpec() {
+    def setupSpec(){
         injector = Guice.createInjector(new ServiceModule())
     }
 
-    def setup() {
-        def context = new org.restlet.Context(log)
-        fixture = injector.getInstance(LoginRouter)
+    def setup(){
+        def context =  new org.restlet.Context(log)
+        fixture = injector.getInstance(UserRouter)
         fixture.context = context
         fixture.init()
         fixture.start()
     }
 
-    def teardown() {
+    def teardown(){
         fixture.stop()
     }
 
+    def " POST /signup goes to UserResource "(){
 
-    def "/login to LoginResource"() {
-        when: "POST /login"
-        def restlet = retrieveRoute(Method.POST, "/login")
+        when: "POST /signup"
+        def restlet = retrieveRoute(Method.POST,"/signup")
 
-        then: "User login"
+        then: "UserResource found"
         restlet != null
-        restlet.targetClass == LoginResource
+        restlet.targetClass == UserResource
     }
 }
