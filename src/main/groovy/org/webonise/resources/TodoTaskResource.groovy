@@ -18,7 +18,8 @@ class TodoTaskResource extends ServerResource{
 
     @Post
     TaskResponse deleteTask(TodoTaskRequest todoTaskRequest){
-            return todoTaskService.deleteTodoTask(todoTaskRequest)
+        println("poc1")
+        return todoTaskService.deleteTodoTask(todoTaskRequest)
     }
 
 
