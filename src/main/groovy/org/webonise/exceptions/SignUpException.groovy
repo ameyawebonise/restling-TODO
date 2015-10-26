@@ -7,5 +7,7 @@ class SignUpException extends Exception{
 
     SignUpException(String message){
         super(message)
+        System.out.println("test test test test ");
+
     }
 }
