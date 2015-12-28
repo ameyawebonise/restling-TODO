@@ -3,7 +3,7 @@ package org.webonise.dao
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import redis.clients.jedis.*
-
+import java.lang.String
 
 @CompileStatic
 @Slf4j
