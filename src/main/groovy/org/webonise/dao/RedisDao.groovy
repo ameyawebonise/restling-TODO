@@ -39,6 +39,7 @@ public class RedisDao {
             return jedis;
         } catch (Exception ex) {
             jedis.close();
+            ex.printStackTrace();
             throw new IllegalStateException("unable to get connection");
         }
     }
