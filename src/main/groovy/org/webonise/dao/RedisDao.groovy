@@ -15,9 +15,14 @@ public class RedisDao {
     Jedis jedis
 
     public RedisDao() {
+       String first = "first";
+       String second = "second"
         PORT = 6379;
         JedisPoolConfig poolConfig = new JedisPoolConfig();
         poolConfig.setMaxIdle(1);
+        if(first == second){
+            System.out.println("A new math has been found!");
+        }
         pool = new JedisPool(poolConfig, "localhost", PORT);
     }
 
